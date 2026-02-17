@@ -2,18 +2,31 @@ from flask import Flask, render_template,request
 import pandas as pd
 import os
 import numpy as np
+import requests
+
 
 app = Flask(__name__)
+app.jinja_env.globals.update(zip=zip)
+
 df=pd.read_pickle('./dataset/movies.pkl')
 similarity=pd.read_pickle('./dataset/similarity.pkl')
-
-
 movies_list=df['title'].tolist()
 
+def fetch_poster(movie_id):
+    response=requests.get(f'https://api.themoviedb.org/3/movie/{movie_id}?api_key=a27871bd7dd47a60c97487a4de8fe57a')
+    data=response.json()
+    poster_path=data.get('poster_path')
+    
+    if not poster_path:
+        return "https://via.placeholder.com/500x750?text=No+Poster"
+    return "https://image.tmdb.org/t/p/original/"+ poster_path
+
+    
 
 def recommend(movie):
     
     recs=[]
+    recs_poster=[]
     if not movie:
         return recs
 
@@ -30,8 +43,10 @@ def recommend(movie):
     movies_list=sorted(list(enumerate(movie_distance)), reverse=True,key=lambda x:x[1])[1:6]
     
     for i in movies_list:
+        movie_id=i[0]
         recs.append(df.iloc[i[0]].title)
-    return recs
+        recs_poster.append(fetch_poster(movie_id))
+    return recs,recs_poster
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -39,15 +54,17 @@ def Title():
     
     selected=None
     recs=[]
+    recs_poster=[]
     if request.method == "POST":
         selected = request.form.get("movie")   # name="movie" in your <select>
         #recs = recommend(str(selected))
-        recs = recommend(selected)
+        recs,recs_poster = recommend(selected)
     return render_template(
         "index.html",
         items=movies_list,
         selected=selected,
-        recs=recs
+        recs=recs,
+        recs_poster=recs_poster
     )
         
 

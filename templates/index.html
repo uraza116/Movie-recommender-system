@@ -20,12 +20,16 @@
 </form>
 
 {% if recs %}
-<h3>Recommendations</h3>
-<ul>
-  {% for m in recs %}
-  <li>{{ m }}</li>
-  {% endfor %}
-</ul>
+  <h3>Recommendations</h3>
+
+  <div class="recs">
+    {% for title, poster in zip(recs, recs_poster) %}
+      <div class="card">
+        <img src="{{ poster }}" alt="{{ title }}" class="poster">
+        <p class="title">{{ title }}</p>
+      </div>
+    {% endfor %}
+  </div>
 {% endif %}
 
 
