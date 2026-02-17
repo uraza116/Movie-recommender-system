@@ -110,14 +110,14 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
-📈 Generate Model Files
+## 📈 Generate Model Files
 
-Before running the application, generate the required model artifacts:
-python model_builder.py
+- Before running the application, generate the required model artifacts:
+- python model_builder.py
 
-This will create: movies.pkl & similarity.pkl
+- This will create: movies.pkl & similarity.pkl
 
-These files are required for the Flask application to run.
+- These files are required for the Flask application to run.
 
 ▶️ Run the Application
 python app.py
@@ -125,65 +125,12 @@ python app.py
 Open in your browser:
 http://127.0.0.1:5000
 
-🔑 TMDB API Setup
+## 🔑 TMDB API Setup
 
-This project uses The Movie Database (TMDB) API to fetch movie posters.
-
-Create an account at https://www.themoviedb.org
-
-Generate an API key
-
-Replace the API key inside app.py
-
-🌐 Deployment
-
-This project can be deployed using:
-
-Heroku
-
-Render
-
-Railway
-
-Docker
-
-AWS / GCP
-
-For production deployment:
-
-Use Gunicorn
-
-Store API keys as environment variables
-
-Avoid committing .pkl files to GitHub
-
-📌 Future Improvements
-
-Hybrid recommendation system (Collaborative + Content-based)
-
-User authentication & personalization
-
-Rating-based filtering
-
-Model compression
-
-Caching recommendations
-
-Docker containerization
-
-Cloud storage for model artifacts
-
-📊 Engineering Highlights
-
-Efficient similarity lookup using precomputed matrix
-
-Clean separation between model generation and web application
-
-Reusable modular structure
-
-Deployment-ready Flask application
-
-Scalable architecture for adding new recommendation strategies
+- This project uses The Movie Database (TMDB) API to fetch movie posters.
+- Create an account at https://www.themoviedb.org
+- Generate an API key
+- Replace the API key inside app.py
 
 👨‍💻 Author
 
