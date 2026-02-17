@@ -21,13 +21,14 @@ pkl files can be genereated by running model_builder.py. They are generated in t
 ## 📸 Demo Screenshots
 
 ### Home Page
+
 ![Home Page](assets/homepage.png)
 
 ### Recommendation Results
-![Recommendations](assets/recommendation -1.png)
-![Recommendations](assets/recommendation -2.png)
-![Recommendations](assets/recommendation -3.png)
 
+![Recommendations1](assets/recommendation1.png)
+![Recommendations2](assets/recommendation2.png)
+![Recommendations3](assets/recommendation3.png)
 
 ## 🚀 Features
 
