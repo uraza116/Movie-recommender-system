@@ -43,7 +43,7 @@ def recommend(movie):
     movies_list=sorted(list(enumerate(movie_distance)), reverse=True,key=lambda x:x[1])[1:6]
     
     for i in movies_list:
-        movie_id=i[0]
+        movie_id=df.iloc[i[0]].movie_id
         recs.append(df.iloc[i[0]].title)
         recs_poster.append(fetch_poster(movie_id))
     return recs,recs_poster
