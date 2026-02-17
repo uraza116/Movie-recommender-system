@@ -1,11 +1,32 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Movie Recommender System</title>
-  </head>
-  <body style="background-color: beige;">
-    <h1 style="text-align: center; font-size: 3em">Movie Recommender System</h1>
-  </body>
-</html>
+{% extends "base.html" %} {% block content %}
+
+<h1 style="text-align: center; font-size: 3em">Movie Recommender System</h1>
+
+<form method="POST" class="row">
+  <select name="movie" required id="dynamic-combobox" class="stylish-select">
+  <option value="" disabled {% if not selected %}selected{% endif %}>
+    -- Select --
+  </option>
+
+  {% for item in items %}
+    <option value="{{ item }}" {% if item == selected %}selected{% endif %}>
+      {{ item }}
+    </option>
+  {% endfor %}
+</select>
+
+
+  <button type="submit" class="stylish-button">Get Recommendations</button>
+</form>
+
+{% if recs %}
+<h3>Recommendations</h3>
+<ul>
+  {% for m in recs %}
+  <li>{{ m }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+
+{% endblock %}
