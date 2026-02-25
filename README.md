@@ -36,28 +36,34 @@ pkl files can be genereated by running model_builder.py. They are generated in t
 - Clone the repository:
 
 ```bash
-git clone https://github.com/uraza116/Movie-recommender-system.git
-cd Movie-recommender-system
+    git clone https://github.com/uraza116/Movie-recommender-system.git
+    cd Movie-recommender-system
 
 
 python -m venv .venv
 
 - Activate:
 
-Windows:
-.venv\Scripts\activate
+    Windows:
+    .venv\Scripts\activate
 
-Mac/Linux:
-source .venv/bin/activate
+    Mac/Linux:
+    source .venv/bin/activate
 
 - Install dependencies:
 
-pip install -r requirements.txt
+    pip install -r requirements.txt
 
 - Generated model artifacts (`.pkl` files) are not stored in this repository due to GitHub file size limitations and must be created locally.
 pkl files can be genereated by running model_builder.py. They are generated in the dataset folder. Run following command to generate those files
 
-python .\model_builder.py
+    python .\model_builder.py
+
+-Run app.py to run flask app
+    python.exe .\app.py
+
+-Enter following address on web browser after running the Flask app
+    http://127.0.0.1:5000/
 ```
 
 ## 🚀 Features
