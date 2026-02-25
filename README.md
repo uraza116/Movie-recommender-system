@@ -30,6 +30,36 @@ pkl files can be genereated by running model_builder.py. They are generated in t
 ![Recommendations2](assets/recommendation2.png)
 ![Recommendations3](assets/recommendation3.png)
 
+
+## ⚙️ Installation
+
+- Clone the repository:
+
+```bash
+git clone https://github.com/uraza116/Movie-recommender-system.git
+cd Movie-recommender-system
+
+
+python -m venv .venv
+
+- Activate:
+
+Windows:
+.venv\Scripts\activate
+
+Mac/Linux:
+source .venv/bin/activate
+
+- Install dependencies:
+
+pip install -r requirements.txt
+
+- Generated model artifacts (`.pkl` files) are not stored in this repository due to GitHub file size limitations and must be created locally.
+pkl files can be genereated by running model_builder.py. They are generated in the dataset folder. Run following command to generate those files
+
+python .\model_builder.py
+```
+
 ## 🚀 Features
 
 - Content-based recommendation system
@@ -98,29 +128,6 @@ Movie-recommender-system/
 └── README.md
 
 ---
-
-## ⚙️ Installation
-
-Clone the repository:
-
-```bash
-git clone https://github.com/uraza116/Movie-recommender-system.git
-cd Movie-recommender-system
-
-
-python -m venv .venv
-Activate:
-
-Windows:
-.venv\Scripts\activate
-
-Mac/Linux:
-source .venv/bin/activate
-
-Install dependencies:
-
-pip install -r requirements.txt
-```
 
 ## 📈 Generate Model Files
 
